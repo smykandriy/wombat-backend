@@ -12,9 +12,7 @@ class EmployeeBackend(ModelBackend):
         if not (user := user_model.objects.filter(phone_number=phone_number).first()):
             return None
 
-        print(user.check_password(password))
         if user.check_password(password):
-            print('yes')
             return user
 
     def get_user(self, user_id):
